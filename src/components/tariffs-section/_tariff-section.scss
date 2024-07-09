@@ -1,0 +1,208 @@
+.tariff-section {
+    margin-bottom: 118px;
+
+    h2 {
+        font-family: 'Ferry', serif;
+        @include font-style(45px, 500, $main-black-color, 54px);
+        margin-bottom: 70px;
+    }
+
+    .tariff-card-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}
+
+.tariff-card {
+    @include font-style(18px, 400, $main-black-color, 21.78px);
+    box-shadow: 0px 0px 20px 0px #00000033;
+    border-radius: 10px;
+    width: 415px;
+
+    .header {
+        height: 132px;
+        border-radius: 10px 10px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 5px 30px 30px;
+
+        .header-text {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            h3 {
+                @include font-style(30px, 500, $main-black-color, 36.31px);
+
+                &.white-text {
+                    color: $main-white-color;
+                }
+            } 
+        }
+
+        p {
+            margin-top: -10px;
+
+            &.white-text {
+                color: $main-white-color;
+            }
+        }
+    }
+
+    .main {
+        height: 408px;
+        border-radius: 0px 0px 10px 10px;
+        padding: 30px 10px 30px 30px;
+        position: relative;
+
+        .current-tariff-tag {
+            @include font-style(14px, 400, $main-white-color, 16.94px);
+            background-color: $current-tariff-tag;
+            padding: 4px;
+            width: 134px;
+            border-radius: 10px;
+            text-align: center;
+            position: absolute;
+            right: 10px;
+            top: 12px;
+        }
+
+        .price {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .regular-price {
+                @include font-style(30px, 500, $main-black-color, 36.31px);
+            }
+
+            .sail-price {
+                @include font-style(25px, 500, $main-black-color, 30.26px);
+                opacity: 50%;
+                text-decoration: line-through;
+            }
+        }
+
+        p {
+            letter-spacing: 0;
+        }
+
+        .ul-header {
+            margin-top: 50px;
+            margin-bottom: 10px;
+            @include font-style(20px, 500, $main-black-color, 24.2px);
+        }
+
+        ul {
+            list-style-image: url('../../utils/imgs/icons/ul-check.svg');
+            margin-left: 23px;
+            margin-bottom: 50px;
+
+            li {
+                margin-bottom: 5px;
+                padding-left: 8px;
+            }
+        }
+    }
+
+    .current-tariff {
+        border: solid $beginner-header-background 2px;
+    }
+
+    .beginner {
+        background-color: $beginner-header-background;
+    }
+
+    .pro {
+        background-color: $pro-header-background;
+
+        .header-text {
+            margin-top: -18px;
+        }
+
+        p {
+            margin-top: -35px;
+        }
+    }
+
+    .business {
+        background-color: $main-black-color;
+    }
+}
+
+@media (max-width: 1260px) {
+    .tariff-section {
+        .tariff-card-container {
+            flex-wrap: wrap;
+            gap: 43px;
+        }    
+    }
+}
+
+@media (max-width: 650px) {
+    .tariff-section {
+        margin-bottom: 43px;
+        h2 {
+            @include font-style(28px, 500, $main-black-color, 33.6px);
+            margin-bottom: 37px;
+        }
+    }
+
+    .tariff-card {
+        width: 335px;
+
+        .header {
+            .header-text {
+
+                img {
+                    width: 70px;
+                }
+            }
+
+            p {
+                margin-top: 10px;
+            }
+        }
+
+        .main {
+            padding: 20px 24px 30px 24px;
+
+            .current-tariff-tag {
+                display: none;
+            }
+
+            .price {
+                gap: 10px;
+            }
+
+            .ul-header {
+                margin-top: 36px;
+                font-size: 18px;
+            }
+
+            ul {
+                margin-bottom: 39px;
+
+                li {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .pro {
+            .header-text {
+                margin-top: -10px;
+
+                img {
+                    width: 79px;
+                }
+            }
+    
+            p {
+                margin-top: -8px;
+            }
+        }
+    }
+}

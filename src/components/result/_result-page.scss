@@ -1,0 +1,109 @@
+.result-page {
+    grid-area: content;
+    margin-top: 25px;
+    margin-bottom: 107px;
+
+    .search-img {
+        display: flex;
+        justify-content: space-between;
+
+        div {
+    
+            h1 {
+                font-family: 'Ferry', serif;
+                @include font-style(40px, 700, $main-black-color, 48px);
+                letter-spacing: 2px;
+                margin: 40px 0 36px 0;
+            }
+    
+            p {
+                @include font-style(20px, 400, $main-black-color, 24.2px);
+            }
+        }
+    }
+
+    .carousel {
+        h2 {
+            font-family: 'Ferry', serif;
+            @include font-style(30px, 700, $main-black-color, 36px);
+            letter-spacing: 2px;
+
+            &+p {
+                @include font-style(18px, 400, $login-font-color, 21.78px);
+                margin: 17px 0 27px 0;
+            }
+        }
+    }
+
+    .documents-list {
+        margin-top: 107px;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            font-family: 'Ferry', serif;
+            @include font-style(30px, 700, $main-black-color, 36px);
+            letter-spacing: 2px;
+        }
+
+        .documents {
+            margin: 58px 0 38px 0;
+            display: flex;
+
+            flex-wrap: wrap;
+            gap: 38px;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .result-page {
+        margin-top: 20px;
+        margin-bottom: 57px;
+
+        .search-img {
+            div {
+                h1 {
+                    @include font-style(28px, 700, $main-black-color, 33.6px);
+                }
+                p {
+                    @include font-style(18px, 400, $main-black-color, 21.78px);
+                    margin: 21px 0;
+                }
+            }
+
+            img {
+                width: 350px;
+                height: 233.73px;
+                margin-bottom: 55px;
+            }
+        }
+
+        .carousel {
+            h2 {
+                @include font-style(28px, 700, $main-black-color, 33.6px);
+            }
+        }
+
+        .documents-list {
+            margin-top: 57px;
+
+            h2 {
+                @include font-style(28px, 700, $main-black-color, 33.6px);
+            }
+    
+            .documents {
+                margin: 34px 0 36px 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .result-page {
+
+        .search-img {
+            flex-direction: column;
+        }
+    }
+}

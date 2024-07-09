@@ -1,0 +1,127 @@
+
+.histogram-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .slider-container {
+        border: solid 2px $footer-background;
+        border-radius: 10px;
+        width: 95%;
+        height: 158px;
+        display: flex;
+        align-items: center;
+    
+        .fixed-column{
+            width: 133px;
+            height: 102%;
+            background-color: $footer-background;
+            border-radius: 10px 0px 0px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 18px 28px;
+            margin-left: -2px;
+    
+            p {
+                @include font-style(20px, 500, $main-white-color, 24.2px);
+            }
+        }
+    
+        .loading {
+            margin: auto;
+            text-align: center;
+            
+            img {
+                width: 50px;
+                height: 50px;
+            }
+    
+            p {
+                @include font-style(18px, 400, $main-black-color, 21.78px);
+            }
+        }
+    
+        .histogram-slider {
+            display: flex;
+            height: 100%;
+            width: 90%;
+            padding: 18px 0;
+            transition: transform 0.5s ease;
+    
+            .histogram-card {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                border-right: 2px solid #9494944d;
+                height: 100%;
+                padding: 0 14px;
+                width: 133px;
+    
+                p {
+                    @include font-style(18px, 400, $main-black-color, 21.78px);
+                }
+            }
+        }
+    }
+
+    .histogram-arrow {
+        width: 39px;
+        height: 39px;
+        background-color: transparent;
+        border: none;
+        background-image: url('../../utils/imgs/icons/slider-arrow-right.svg');
+        cursor: pointer;
+        opacity: 50%;
+
+        &:hover {
+            opacity: 100%;
+        }
+
+        &:disabled {
+
+            &:hover {
+                opacity: 50%;
+            }
+        }
+    }
+
+    .left {
+        transform: rotate(180deg);
+    }
+}
+
+@media (max-width: 650px) {
+    .histogram-slider-container {
+    
+        .slider-container {
+            flex-direction: column;
+            align-items: flex-start;
+
+            .fixed-column{
+                flex-direction: row;
+                align-items: center;
+                width: 101%;
+                border-radius: 10px 10px 0px 0px;
+                margin-top: -2px;
+                padding: 20px 15px;
+            }
+
+            .loading {        
+                p {
+                    display: none;
+                }
+            }
+
+            .histogram-slider {        
+                .histogram-card {
+                    flex-direction: row;
+                    border: none;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

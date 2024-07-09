@@ -1,0 +1,107 @@
+.document-card {
+    padding: 20px 30px;
+    width: 641px;
+    height: 694px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px #00000033;
+    display: flex;
+    flex-direction: column;
+
+    .date-link {
+        display: flex;
+        gap: 14px;
+        @include font-style(16px, 400, $login-font-color, 19.36px);
+
+        a {
+            text-decoration: underline;
+            @include font-style(16px, 400, $login-font-color, 19.36px);
+        }
+    }
+
+    h4 {
+        @include font-style(26px, 500, $main-black-color, 31.47px);
+        margin: 24px 0 14px 0;
+    }
+
+    span {
+        @include font-style(12px, 400, $main-black-color, 14.52px);
+        padding: 4px;
+        border-radius: 5px;
+        background-color: $beginner-header-background;
+        width: 157px;
+        text-align: center;
+    }
+
+    .doc-content {
+        margin: 14px 0 32px 0;
+
+        img {
+            width: 100%;
+            max-height: 158px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .content {
+            @include font-style(16px, 400, $main-black-color, 19.36px);
+            opacity: 50%;
+        }
+    }
+
+    .doc-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: auto 0 15px 0;
+
+        p {
+            @include font-style(16px, 400, $login-font-color, 19.36px);
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .document-card {
+        padding: 20px 14px;
+        .date-link {
+            @include font-style(14px, 400, $login-font-color, 16.94px);
+    
+            a {
+                text-decoration: underline;
+                @include font-style(14px, 400, $login-font-color, 16.94px);
+            }
+        }
+    
+        h4 {
+            @include font-style(19px, 500, $main-black-color, 22.99px);
+            margin: 21px 0 20px 0;
+        }
+
+        span {
+            @include font-style(10px, 400, $main-black-color, 12.1px);
+        }
+
+        .doc-content {
+            margin: 13px 0 25px 0;
+    
+            img {
+                width: 100%;
+                max-height: 158px;
+                border-radius: 10px;
+                object-fit: cover;
+                margin-bottom: 18px;
+            }
+            
+            .content {
+                @include font-style(12px, 400, $main-black-color, 14.52px);
+            }
+        }
+
+        .doc-card-footer {    
+            p {
+                @include font-style(14px, 400, $login-font-color, 16.94px);
+            }
+        }
+    }
+}

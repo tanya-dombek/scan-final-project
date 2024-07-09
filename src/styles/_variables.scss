@@ -1,0 +1,26 @@
+$main-white-color: #FFFFFF;
+$footer-background: #029491;
+$main-black-color: #000000;
+$main-grey: #d9d9d939;
+
+$btn-background: #5970FF;
+$current-tariff-btn: #D2D2D2;
+$login-btn: #7CE3E1;
+$login-btn-hover: #7ce3e1a2;
+
+$beginner-header-background: #FFB64F;
+$pro-header-background: $login-btn;
+$current-tariff-tag: #3BA5E0;
+
+$error-color: #FF5959;
+$limit-number-color: #8AC540;
+
+$login-font-color: #949494;
+$login-input-color: #C7C7C7;
+
+@mixin font-style($fontSize, $fontWeight, $fontColor, $lineHeight) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $fontColor;
+    line-height: $lineHeight;
+}

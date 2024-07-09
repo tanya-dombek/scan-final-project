@@ -1,0 +1,169 @@
+.login {
+    grid-area: content;
+    grid-area: content;
+    display: grid;
+    gap: 13px;
+    margin: auto 0;
+    grid-template-areas:
+        "h1 authorization-card"
+        "img authorization-card";
+
+    h1 {
+        grid-area: h1;
+        max-width: 780px;
+        margin-right: 50px;
+        font-family: 'Ferry', serif;
+        @include font-style(40px, 500, $main-black-color, 48px);
+    }
+
+    .login-image {
+        grid-area: img;
+        margin-left: 100px;
+        margin-top: 15px;
+    }
+
+    .authorization-card {
+        grid-area: authorization-card;
+        width: 429px;
+        height: 523px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px #00000026;
+        padding: 25px;
+        position: relative;
+        @include font-style(16px, 400, $login-font-color, 19.36px);
+
+        .lock-img {
+            position: absolute;
+            top: -55px;
+            left: -50px;
+            z-index: 1;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+
+            .login-tab, .registration-tab {
+                padding-bottom: 8px;
+                border-bottom: solid 2px $login-input-color;
+                color: $login-input-color;
+                text-align: center;
+                cursor: pointer;
+
+                &:hover {
+                    color: $footer-background;
+                    border-bottom: solid 2px $footer-background;
+                }
+            }
+
+            .login-tab {
+                width: 151px;
+            }
+
+            .registration-tab {
+                width: 213px;
+            }
+
+            .active {
+                color: $footer-background;
+                border-bottom: solid 2px $footer-background;
+            }
+        }
+
+        input {
+            width: 100%;
+            outline: none;
+            margin: 15px 0 25px 0;
+            border-radius: 5px;
+            border: solid 1px $login-input-color;
+            padding: 12px 19px;
+            @include font-style(16px, 400, $main-black-color, 19.36px);
+        }
+
+        .error {
+            border: solid 1px $error-color;
+            box-shadow: 0px 0px 10px 0px #FF595933;
+            margin-bottom: 6px;
+            color: $error-color;
+        }
+
+        .error-msg {
+            @include font-style(14px, 400, $error-color, 16.94px);
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .reset-password {
+            margin: 15px 0 30px 0;
+            text-align: center;
+
+            a {
+                @include font-style(14px, 400, $btn-background, 16.94px);
+                text-decoration: underline;    
+            }
+        }
+
+        .networks {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+
+            .icon-container {
+                padding-top: 7px;
+                width: 96px;
+                border: solid 1px #5970FF82;
+                border-radius: 3px;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .login {        
+        h1 {
+            @include font-style(22px, 500, $main-black-color, 26.4px);
+        }
+
+        .login-image {
+            margin-left: 0px;
+        }
+
+        .authorization-card {
+            width: 335px;
+            height: 504px;
+
+        }
+    }
+
+}
+
+@media (max-width: 700px) {
+    .login {
+        grid-template-areas:
+            "h1"
+            "authorization-card"
+            "img";
+        gap: 45px;
+        margin-bottom: 79px;
+
+        h1 {
+            margin-right: 0px;
+            margin-bottom: 50px;
+        }
+    
+        .login-image {
+            margin-left: 0;
+            margin-top: 15px;
+        }
+    
+        .authorization-card {
+            .lock-img {
+                top: -80px;
+                left: 60px;
+            }
+        }    
+    }
+}

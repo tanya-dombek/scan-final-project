@@ -1,0 +1,37 @@
+footer {
+    grid-area: footer;
+    background-color: $footer-background;
+    height: 137px;
+    display: grid;
+    grid-template-columns: minmax(14px, auto) minmax(288px, 1320px) minmax(14px, auto);
+    grid-template-areas: '. footer-container .';
+
+    .footer-container {
+        grid-area: footer-container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 21px;
+    
+            p {
+                @include font-style(14px, 400, $main-white-color, 16.94px);
+                text-align: end;
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .footer-container {
+        img {
+            width: 111px;
+            height: 111px;
+            margin-top: -50px;
+        }
+    }
+    
+}
