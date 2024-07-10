@@ -55,6 +55,10 @@
         align-items: flex-end;
         margin: auto 0 15px 0;
 
+        .no-url {
+            justify-content: flex-end;
+        }
+
         p {
             @include font-style(16px, 400, $login-font-color, 19.36px);
         }
