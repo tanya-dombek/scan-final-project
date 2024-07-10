@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Account info to log in: user - sf_student1, password - 4i2385j
 
 ## Available Scripts
 
