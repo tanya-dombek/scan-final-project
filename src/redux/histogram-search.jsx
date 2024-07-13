@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { BASE_URL } from "../utils/utils";
 import { updateRequest } from "../utils/histogram-data";
+import { axiosInstance } from "../utils/res-utils";
 
 const initialState = {
     isLoading: false,
@@ -9,15 +8,11 @@ const initialState = {
     histogramData: null
 }
 
-export const histogramSearch = createAsyncThunk('objectsearch/histograms', async({token, searchData}) => {
-    const headers = {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-    };
-    const updatedRequest = updateRequest(searchData)
-    const request = await axios.post(BASE_URL + '/objectsearch/histograms', updatedRequest, {headers});
+export const histogramSearch = createAsyncThunk('objectsearch/histograms', async ({ searchData }) => {
+    const updatedRequest = updateRequest(searchData);
+    const request = await axiosInstance.post('/objectsearch/histograms', updatedRequest);
     return request.data.data;
-})
+});
 
 const histogramSlice = createSlice({
     name: 'histograms',

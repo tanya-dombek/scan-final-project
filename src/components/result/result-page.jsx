@@ -29,7 +29,7 @@ const ResultPage = () => {
     
     useEffect(() => {
         if (objectSearchData && getUser()) {
-            dispatch(documentsSearch({token: getUser(), documentsData: objectSearchData, countNumber}))
+            dispatch(documentsSearch({documentsData: objectSearchData, countNumber}))
         }
     }, [objectSearchData, getUser(), countNumber])
 

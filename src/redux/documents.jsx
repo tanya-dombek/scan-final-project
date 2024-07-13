@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { BASE_URL } from "../utils/utils";
+import { axiosInstance } from "../utils/res-utils";
 import { transformIdsData } from "../utils/documents-data"; 
 
 const initialState = {
@@ -9,15 +8,11 @@ const initialState = {
     documents: null
 }
 
-export const documentsSearch = createAsyncThunk('documents', async({token, documentsData, countNumber}) => {
-    const headers = {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-    };
-    const updatedRequest = transformIdsData(documentsData, countNumber)
-    const request = await axios.post(BASE_URL + '/documents', updatedRequest, {headers});
-    return request.data;
-})
+export const documentsSearch = createAsyncThunk('documents', async ({ documentsData, countNumber }) => {
+      const updatedRequest = transformIdsData(documentsData, countNumber);
+      const request = await axiosInstance.post('/documents', updatedRequest);
+      return request.data;
+});
 
 const documentsSlice = createSlice({
     name: 'documents',

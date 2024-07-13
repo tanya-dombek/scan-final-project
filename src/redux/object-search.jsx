@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { BASE_URL } from "../utils/utils";
 import {  updateRequest } from "../utils/histogram-data";
+import { axiosInstance } from "../utils/res-utils";
 
 const initialState = {
     isLoading: false,
@@ -9,15 +8,11 @@ const initialState = {
     objectSearchData: null
 }
 
-export const objectSearch = createAsyncThunk('objectsearch', async({token, searchData}) => {
-    const headers = {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-    };
-    const updatedRequest = updateRequest(searchData)
-    const request = await axios.post(BASE_URL + '/objectsearch', updatedRequest, {headers});
+export const objectSearch = createAsyncThunk('objectsearch', async ({ searchData }) => {
+    const updatedRequest = updateRequest(searchData);
+    const request = await axiosInstance.post('/objectsearch', updatedRequest);
     return request.data.items;
-})
+});
 
 const objectSearchSlice = createSlice({
     name: 'objectSearch',

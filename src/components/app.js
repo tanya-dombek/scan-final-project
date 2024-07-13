@@ -9,6 +9,12 @@ import { OnlyAuth, OnlyUnAuth } from './protected-route';
 import ResultPage from './result/result-page';
 import { getUser, logout } from '../utils/utils';
 
+const routes = [
+  { path: "/", element: <Content /> },
+  { path: "/login", element: <OnlyUnAuth component={<Login />} /> },
+  { path: "/search", element: <OnlyAuth component={<SearchPage />} /> },
+  { path: "/result", element: <OnlyAuth component={<ResultPage />} /> },
+];
 
 function App() {
   useEffect(() => {
@@ -25,10 +31,9 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Content />} />
-        <Route path="/login" element={<OnlyUnAuth component={<Login />}/>} />
-        <Route path="/search" element={<OnlyAuth component={<SearchPage />}/>} />
-        <Route path="/result" element={<OnlyAuth component={<ResultPage />}/>} />
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
       </Routes>
       <Footer />
     </>

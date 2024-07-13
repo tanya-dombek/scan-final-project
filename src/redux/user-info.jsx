@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { BASE_URL } from "../utils/utils";
+import { axiosInstance } from "../utils/res-utils";
 
 const initialState = {
     isLoading: false,
@@ -8,14 +7,10 @@ const initialState = {
     error: null
 }
 
-export const getUserInfo = createAsyncThunk('user/userInfo', async(token) => {
-    const headers = {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-    };
-    const request = await axios.get(BASE_URL + '/account/info', {headers});
-    return request.data
-})
+export const getUserInfo = createAsyncThunk('user/userInfo', async () => {
+    const request = await axiosInstance.get('/account/info');
+    return request.data;
+});
 
 const getUserInfoSlice = createSlice({
     name: 'userInfo',

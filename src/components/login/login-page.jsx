@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import loginImg from '../../utils/imgs/characters.svg';
@@ -18,19 +18,20 @@ const Login = () => {
     const {isLoading, error} = useSelector(state => state.login);  
     const [user, setUser] = useState({login: '', password: ''})
 
-    const handleChange = (e) => {
+    const handleChange = useCallback((e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
-    };
+    }, [user]);
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        dispatch(loginUser(user)).then((result) => {
+    const onSubmit = useCallback((e) => {
+          e.preventDefault();
+          dispatch(loginUser(user)).then((result) => {
             if (result.payload) {
-                setUser({login: '', password: ''});
-                navigate('/');
+              setUser({ login: "", password: "" });
+              navigate("/");
             }
-        });
-    };
+          });
+        },[user]
+    );
 
     useEffect(() => {
         dispatch(resetError());

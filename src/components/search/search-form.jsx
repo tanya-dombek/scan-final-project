@@ -10,7 +10,7 @@ import checkedIcon from '../../utils/imgs/icons/check.svg';
 import unCheckedIcon from '../../utils/imgs/icons/uncheck.svg';
 import { useDispatch } from 'react-redux';
 import { histogramSearch } from '../../redux/histogram-search';
-import { getUser, searchData } from '../../utils/utils';
+import { searchData } from '../../utils/utils';
 import { useNavigate } from 'react-router-dom';
 import 'dayjs/locale/en-gb';
 import { checkboxData } from '../../utils/checkbox-data';
@@ -48,8 +48,8 @@ const SearchForm = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        dispatch(histogramSearch({ token: getUser(), searchData: searchParameters }));
-        dispatch(objectSearch({ token: getUser(), searchData: searchParameters }));
+        dispatch(histogramSearch({ searchData: searchParameters }));
+        dispatch(objectSearch({ searchData: searchParameters }));
         navigate('/result');
     };
 
